@@ -16,6 +16,16 @@ const notes = simDB.initialize(data);
 /* ========== GET/READ ALL NOTES ========== */
 router.get('/notes', (req, res, next) => {
   const { searchTerm } = req.query;
+  knex
+    .select('id', 'title', 'content')
+    .from('notes')
+    .where(function() {
+        if (searchTerm) {
+            this.where('title', 'like', `%${searchTerm}%`);
+        }
+    })
+    .then(results => res.json(results))
+    .catch(err => next(err));
   /* 
   notes.filter(searchTerm)
     .then(list => {
@@ -25,9 +35,17 @@ router.get('/notes', (req, res, next) => {
   */
 });
 
+
 /* ========== GET/READ SINGLE NOTES ========== */
 router.get('/notes/:id', (req, res, next) => {
   const noteId = req.params.id;
+
+  knex
+    .select('id', 'title', 'content')
+    .from('notes')
+    .where('id', noteId)
+    .then(results => res.json(results))
+    .catch(err => next(err));
 
   /*
   notes.find(noteId)
@@ -62,6 +80,16 @@ router.put('/notes/:id', (req, res, next) => {
     return next(err);
   }
 
+  knex('notes')
+    .where({id: noteId})
+    .update({
+        title: req.body.title,
+        content: req.body.content
+    }, ['id', 'title', 'content'])
+    .then(results => res.json(results))
+    .catch(err => next(err));
+
+
   /*
   notes.update(noteId, updateObj)
     .then(item => {
@@ -87,6 +115,12 @@ router.post('/notes', (req, res, next) => {
     return next(err);
   }
 
+  knex('notes')
+    .insert(newItem)
+    .returning(['id', 'title', 'content'])
+    .then(results => res.json(results))
+    .catch(err => next(err));
+
   /*
   notes.create(newItem)
     .then(item => {
@@ -102,6 +136,12 @@ router.post('/notes', (req, res, next) => {
 router.delete('/notes/:id', (req, res, next) => {
   const id = req.params.id;
   
+  knex('notes')
+    .where({id: notesId})
+    .del()
+    .then(results => res.json(results))
+    .catch(err => next(err));
+
   /*
   notes.delete(id)
     .then(count => {
