@@ -1,5 +1,5 @@
 'use strict';
-
+const knex = require('../knex');
 const express = require('express');
 
 // Create an router instance (aka "mini-app")
@@ -134,10 +134,10 @@ router.post('/notes', (req, res, next) => {
 
 /* ========== DELETE/REMOVE A SINGLE ITEM ========== */
 router.delete('/notes/:id', (req, res, next) => {
-  const id = req.params.id;
+  const noteId = req.params.id;
   
   knex('notes')
-    .where({id: notesId})
+    .where({id: noteId})
     .del()
     .then(results => res.json(results))
     .catch(err => next(err));
