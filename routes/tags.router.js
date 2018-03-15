@@ -30,8 +30,13 @@ router.get('/tags/:id', (req, res, next) => {
 
 //Post
 router.post('/tags', (req, res, next) => {
-    const name = req.body[0].name;
+    const { name } = req.body;
 
+    //Check if body is an array.
+    if(!name) {
+        const name = req.body[0].name;
+    }
+    //If still undefined
     if(!name) {
         const err = new Error('Missing `name` in request body');
         err.status = 400;
