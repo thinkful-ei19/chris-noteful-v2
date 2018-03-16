@@ -35,8 +35,7 @@ describe('Environment', () => {
   });
 
   it('connection should be test database', () => {
-    //changed noteful-test to notefulTest
-    expect(knex.client.connectionSettings.database).to.equal('notefulTest');
+    expect(knex.client.connectionSettings.database).to.equal('noteful-test');
   });
 
 });
