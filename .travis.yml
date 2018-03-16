@@ -11,5 +11,3 @@ deploy:
   app: noteful-v2-chris
   on:
     repo: thinkful-ei19/chris-noteful-v2
-
-/
