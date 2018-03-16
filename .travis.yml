@@ -1,8 +1,7 @@
 language: node_js
 node_js: node
-services: 
-	- postgresql
-
-before_script: 
-	- psql -c 'CREATE DATABASE noteful-test;' -U postgres
-	- psql -c 'CREATE USER test WITH PASSWORD test;' -U postgres
+services:
+  - postgresql
+before_script:
+  - psql -c 'CREATE DATABASE noteful-test;' -U postgres
+  - psql -c 'CREATE USER test WITH PASSWORD test;' -U postgres
