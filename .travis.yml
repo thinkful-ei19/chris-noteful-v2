@@ -4,4 +4,4 @@ services:
   - postgresql
 before_script:
   - psql -c 'create database notefulTest;' -U postgres
-  - psql -c 'create user test with password test;' -U postgres
+  - psql -c 'create user dev with password dev123;' -U postgres
