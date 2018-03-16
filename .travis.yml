@@ -4,7 +4,7 @@ deploy:
   provider: heroku
   api_key:
     secure: elqZWoCK9F6sCop3uUSqLWFhXs48n3FZfhKs4p94/A1LoguRAMgah1Sdm2NPWrXcuGeIm9PLou/Dg8BfZcNMCXvSwPZjj+I42/2KM2Q6LqWHMh28l8LIkkP0uM5nT9Ob7fREtq2sYmUVd8H11uxOtw8zzoykMZYNR/8U104mmcgh691FrY641yaZPpuzPeq/Vxdt82G0Z6cyKB154K9msizH85EhGJtdy9SSb5aMsVqGgCZQF+vNir/GMjZYE9EjjxsP8x7UOWtNFiifhOlynXg6mT5Op/Xrw136/xCu2R/kV+JQde1iEvNjGcM6LJQLmD0XfjuhGIOPJLydB3cPNJr/U+yE26SU8n0qEXitmOP6BSi/3Mik5MthCJFMaW3HPta7W0rl61zK8Y+5+R+1rJ1ROqLfRDWgPrcdTCl/ztAksmYMVHRTt+QXMf8PwiuXot5IaTzfYGVtKexEpAxXmnyIeFCnsmW7gK1R5OHYul+WSPWq69XvibitCVLcEMKx7uMT+bQIi6dzpr8/azrnu+dHIbcn7Iq1joe8zg5+8VaNGQoCzKqGHO/zS1PPJaD4IpIBPgIh0B1jYF7VwaU9srOQg1ezfMfDuKUQVy+KSrifiXbzYtg9n06bvKMUDkiNo+C+ETDMFQGc9vZfM6LS5LwPbcFpoziCtJjgiM1dH40=
-  app: noteful-v1-chris
+  app: noteful-v2-chris
   on:
     repo: thinkful-ei19/chris-noteful-v2
 services:
