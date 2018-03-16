@@ -216,7 +216,14 @@ router.delete('/notes/:id', (req, res, next) => {
   knex('notes')
     .where({id: noteId})
     .del()
-    .then((results) => res.json(results))
+    //.then((results) => res.json(results))
+    .then(results => {
+      if (results) {
+        res.status(204).end();
+      } else {
+        next();
+      }
+    })
     .catch(err => next(err));
 
   /*
